@@ -20,7 +20,7 @@ function drawCharts() {
     drawChart(document.getElementById('chart_div_1'), 'B5:C', 'INDIA')
     drawChart(document.getElementById('chart_div_2'), 'B5:B,D5:D', 'INDIA')
     drawChart(document.getElementById('chart_div_3'), 'B5:C', 'USA')
-    drawChart(document.getElementById('chart_div_4'), 'B5:B,D5:D', 'INDIA')
+    drawChart(document.getElementById('chart_div_4'), 'B5:B,D5:D', 'USA')
 }
 
 function drawChart(chart_div, range, sheet) {
