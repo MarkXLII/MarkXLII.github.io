@@ -19,8 +19,13 @@ var chart_options = {
 function drawCharts() {
     drawChart(document.getElementById('chart_div_1'), 'B5:C', 'INDIA')
     drawChart(document.getElementById('chart_div_2'), 'B5:B,D5:D', 'INDIA')
-    drawChart(document.getElementById('chart_div_3'), 'B5:C', 'USA')
-    drawChart(document.getElementById('chart_div_4'), 'B5:B,D5:D', 'USA')
+    drawChart(document.getElementById('chart_div_3'), 'B5:B,E5:E', 'INDIA')
+    drawChart(document.getElementById('chart_div_4'), 'B5:B,F5:F', 'INDIA')
+
+    drawChart(document.getElementById('chart_div_5'), 'B5:C', 'USA')
+    drawChart(document.getElementById('chart_div_6'), 'B5:B,D5:D', 'USA')
+    drawChart(document.getElementById('chart_div_7'), 'B5:B,E5:E', 'USA')
+    drawChart(document.getElementById('chart_div_8'), 'B5:B,F5:F', 'USA')
 }
 
 function drawChart(chart_div, range, sheet) {
