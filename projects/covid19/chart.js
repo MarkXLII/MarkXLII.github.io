@@ -21,10 +21,17 @@ var series_2 = {
 
 var chart_options = {
     curveType: 'function',
-    legend: { position: 'top' },
+    legend: {
+        position: 'top'
+    },
     width: '100%',
     height: 300,
+    hAxis: {
+        format: 'dd MMM',
+        viewWindow: '100%'
+    },
     vAxis: {
+        format: 'short',
         viewWindow: {
             min: 0
         }
