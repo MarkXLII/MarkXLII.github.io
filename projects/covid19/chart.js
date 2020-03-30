@@ -1,6 +1,8 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawCharts);
 
+var scaleType = 'linear'
+
 var series_1 = {
     0: { color: '#43459d' },
     1: { color: '#e7711b' },
@@ -56,7 +58,8 @@ function drawChart(chart_div, range, sheet, series) {
     var handleQueryResponse = function (response) {
         var data = response.getDataTable();
         var chart = new google.visualization.LineChart(chart_div);
-        chart_options.series = series
+        chart_options.series = series;
+        chart_options.vAxis.scaleType = scaleType;
         chart.draw(data, chart_options);
     }
     query.send(handleQueryResponse);
@@ -64,4 +67,13 @@ function drawChart(chart_div, range, sheet, series) {
 
 $(window).resize(function () {
     drawCharts()
+});
+
+$(document).ready(function () {
+    $('input[type=radio]').click(function () {
+        if (this.value != scaleType) {
+            scaleType = this.value;
+            drawCharts();
+        }
+    });
 });
