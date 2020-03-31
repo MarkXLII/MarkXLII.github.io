@@ -37,13 +37,23 @@
 
             <section>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-3">
+                        <h3 class="font-light">Country:</h3>
+                        <div>
+                            <input type="radio" id="india" name="country" value="INDIA" checked>
+                            <label for="india">India</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="usa" name="country" value="USA">
+                            <label for="usa">USA</label>
+                        </div>
+                    </div>
+                    <div class="col-9">
                         <h3 class="font-light">Select vertical axis scale:</h3>
                         <div>
                             <input type="radio" id="linear" name="scale" value="linear" checked>
                             <label for="linear">Linear</label>
                         </div>
-
                         <div>
                             <input type="radio" id="log" name="scale" value="log">
                             <label for="log">Logarithmic (<a
@@ -58,7 +68,7 @@
 
             <section>
                 <div class="row">
-                    <h2 class="center font-light">India</h2>
+                    <h2 id='country_name' class="center font-light">India</h2>
                     <div class="col-12 center">
                         <div id="chart_div_1" class="center">
                             <div class="lds-ellipsis">
@@ -93,56 +103,6 @@
                     </div>
                     <div class="col-12 center">
                         <div id="chart_div_4" class="center">
-                            <div class="lds-ellipsis">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <hr style="margin-top: 50px;">
-
-            <section>
-                <div class="row">
-                    <h2 class="center font-light">USA</h2>
-                    <div class="col-12 center">
-                        <div id="chart_div_5" class="center">
-                            <div class="lds-ellipsis">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 center">
-                        <div id="chart_div_6" class="center">
-                            <div class="lds-ellipsis">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 center">
-                        <div id="chart_div_7" class="center">
-                            <div class="lds-ellipsis">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 center">
-                        <div id="chart_div_8" class="center">
                             <div class="lds-ellipsis">
                                 <div></div>
                                 <div></div>

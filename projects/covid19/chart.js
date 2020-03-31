@@ -1,7 +1,15 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawCharts);
 
-var scaleType = 'linear'
+var scaleType = 'linear';
+var scaleTypes = ['linear', 'log'];
+
+var country = 'INDIA';
+var countries = ['INDIA', 'USA'];
+var countryNames = {
+    'INDIA': 'India',
+    'USA': 'USA'
+}
 
 var series_1 = {
     0: { color: '#43459d' },
@@ -40,16 +48,17 @@ var chart_options = {
     }
 };
 
-function drawCharts() {
-    drawChart(document.getElementById('chart_div_1'), 'B5:C', 'INDIA', series_1)
-    drawChart(document.getElementById('chart_div_2'), 'B5:B,D5:D', 'INDIA', series_1)
-    drawChart(document.getElementById('chart_div_3'), 'B5:B,E5:E', 'INDIA', series_2)
-    drawChart(document.getElementById('chart_div_4'), 'B5:B,F5:F', 'INDIA', series_2)
+var loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
-    drawChart(document.getElementById('chart_div_5'), 'B5:C', 'USA', series_1)
-    drawChart(document.getElementById('chart_div_6'), 'B5:B,D5:D', 'USA', series_1)
-    drawChart(document.getElementById('chart_div_7'), 'B5:B,E5:E', 'USA', series_2)
-    drawChart(document.getElementById('chart_div_8'), 'B5:B,F5:F', 'USA', series_2)
+function drawCharts() {
+    $('#chart_div_1').html(loading_html);
+    $('#chart_div_2').html(loading_html);
+    $('#chart_div_3').html(loading_html);
+    $('#chart_div_4').html(loading_html);
+    drawChart(document.getElementById('chart_div_1'), 'B5:C', country, series_1)
+    drawChart(document.getElementById('chart_div_2'), 'B5:B,D5:D', country, series_1)
+    drawChart(document.getElementById('chart_div_3'), 'B5:B,E5:E', country, series_2)
+    drawChart(document.getElementById('chart_div_4'), 'B5:B,F5:F', country, series_2)
 }
 
 function drawChart(chart_div, range, sheet, series) {
@@ -70,9 +79,18 @@ $(window).resize(function () {
 });
 
 $(document).ready(function () {
-    $('input[type=radio]').click(function () {
-        if (this.value != scaleType) {
+    $('input[name=scale]').click(function () {
+        var newValue = this.value;
+        if (scaleTypes.includes(newValue) && newValue != scaleType) {
             scaleType = this.value;
+            drawCharts();
+        }
+    });
+    $('input[name=country]').click(function () {
+        var newValue = this.value;
+        if (countries.includes(newValue) && newValue != country) {
+            country = this.value;
+            $('#country_name').text(countryNames[country]);
             drawCharts();
         }
     });
