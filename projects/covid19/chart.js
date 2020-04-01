@@ -1,15 +1,25 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawCharts);
 
+// Chart vertical axis scales
 var scaleType = 'linear';
 var scaleTypes = ['linear', 'log'];
 
+// Sheets
 var country = 'INDIA';
 var countries = ['INDIA', 'USA'];
 var countryNames = {
     'INDIA': 'India',
     'USA': 'USA'
 }
+
+// Cache data from sheet to avoid too many requests
+// Expiry: 1hr
+var data_cache_expiry = 60 * 60 * 1000;
+var data_cache = {}
+
+// Set window width, avoid redraw on height change (collapsing toolbar on mobiles)
+var lastWidth = 0;
 
 var series_1 = {
     0: { color: '#43459d' },
@@ -51,6 +61,7 @@ var chart_options = {
 var loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
 function drawCharts() {
+    console.log('drawCharts');
     $('#chart_div_1').html(loading_html);
     $('#chart_div_2').html(loading_html);
     $('#chart_div_3').html(loading_html);
@@ -62,20 +73,43 @@ function drawCharts() {
 }
 
 function drawChart(chart_div, range, sheet, series) {
-    var URL = 'https://docs.google.com/spreadsheets/d/16jZt8lJkWMKYtPbfaWvgTEDeb2eR8NmppMVpN1UxQeY/gviz/tq?range=' + range + '&sheet=' + sheet;
-    var query = new google.visualization.Query(URL);
-    var handleQueryResponse = function (response) {
-        var data = response.getDataTable();
+    getData(sheet, range, function (data) {
         var chart = new google.visualization.LineChart(chart_div);
         chart_options.series = series;
         chart_options.vAxis.scaleType = scaleType;
         chart.draw(data, chart_options);
-    }
-    query.send(handleQueryResponse);
+    });
 }
 
-$(window).resize(function () {
-    drawCharts()
+function getData(sheet, range, callback) {
+    var key = sheet + ":" + range;
+    var data_from_cache = getFromCache(key);
+    if (data_from_cache) {
+        callback(data_from_cache);
+    } else {
+        var URL = 'https://docs.google.com/spreadsheets/d/16jZt8lJkWMKYtPbfaWvgTEDeb2eR8NmppMVpN1UxQeY/gviz/tq?range=' + range + '&sheet=' + sheet;
+        var query = new google.visualization.Query(URL);
+        var handleQueryResponse = function (response) {
+            var data = response.getDataTable();
+            setInCache(key, data);
+            callback(data);
+        }
+        query.send(handleQueryResponse);
+    }
+}
+
+$(window).on('load', function () {
+    console.log('load: W:' + window.innerWidth + ' H:' + window.innerHeight);
+    lastWidth = window.innerWidth;
+});
+
+$(window).on('resize', function () {
+    // Re-draw only when width is changed
+    var newWidth = window.innerWidth;
+    if (lastWidth != newWidth) {
+        lastWidth = newWidth;
+        drawCharts();
+    }
 });
 
 $(document).ready(function () {
@@ -95,3 +129,27 @@ $(document).ready(function () {
         }
     });
 });
+
+function setInCache(key, value) {
+    var d = new Date();
+    data_cache[key] = {
+        data: value,
+        expiry: d.getTime() + data_cache_expiry
+    }
+}
+
+function getFromCache(key) {
+    var value = data_cache[key];
+    if (value) {
+        var d = new Date();
+        var newTime = d.getTime();
+        if (newTime <= value.expiry) {
+            return value.data;
+        } else {
+            data_cache[key] = undefined;
+            return undefined;
+        }
+    } else {
+        return undefined;
+    }
+}
