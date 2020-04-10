@@ -61,7 +61,6 @@ var chart_options = {
 var loading_html = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
 
 function drawCharts() {
-    console.log('drawCharts');
     $('#chart_div_1').html(loading_html);
     $('#chart_div_2').html(loading_html);
     $('#chart_div_3').html(loading_html);
@@ -99,7 +98,6 @@ function getData(sheet, range, callback) {
 }
 
 $(window).on('load', function () {
-    console.log('load: W:' + window.innerWidth + ' H:' + window.innerHeight);
     lastWidth = window.innerWidth;
 });
 
