@@ -1,0 +1,691 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Linuxication 2k16</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel-noscript.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-wide.css" />
+
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+
+    <link rel="stylesheet" href="css/mystyle.css" />
+    <script src="js/jssor.slider.mini.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+
+            var jssor_1_SlideshowTransitions = [{
+                $Duration: 1200,
+                $Opacity: 2
+            }];
+
+            var jssor_1_options = {
+                $AutoPlay: true,
+                $SlideshowOptions: {
+                    $Class: $JssorSlideshowRunner$,
+                    $Transitions: jssor_1_SlideshowTransitions,
+                    $TransitionsOrder: 1
+                },
+                $ArrowNavigatorOptions: {
+                    $Class: $JssorArrowNavigator$
+                },
+                $BulletNavigatorOptions: {
+                    $Class: $JssorBulletNavigator$
+                }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                } else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+
+    </script>
+
+    <style>
+        /* jssor slider bullet navigator skin 05 css */
+        /*
+        .jssorb05 div           (normal)
+        .jssorb05 div:hover     (normal mouseover)
+        .jssorb05 .av           (active)
+        .jssorb05 .av:hover     (active mouseover)
+        .jssorb05 .dn           (mousedown)
+        */
+        
+        .jssorb05 {
+            position: absolute;
+        }
+        
+        .jssorb05 div,
+        .jssorb05 div:hover,
+        .jssorb05 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 16px;
+            height: 16px;
+            background: url('images/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .jssorb05 div {
+            background-position: -7px -7px;
+        }
+        
+        .jssorb05 div:hover,
+        .jssorb05 .av:hover {
+            background-position: -37px -7px;
+        }
+        
+        .jssorb05 .av {
+            background-position: -67px -7px;
+        }
+        
+        .jssorb05 .dn,
+        .jssorb05 .dn:hover {
+            background-position: -97px -7px;
+        }
+        /* jssor slider arrow navigator skin 12 css */
+        /*
+        .jssora12l                  (normal)
+        .jssora12r                  (normal)
+        .jssora12l:hover            (normal mouseover)
+        .jssora12r:hover            (normal mouseover)
+        .jssora12l.jssora12ldn      (mousedown)
+        .jssora12r.jssora12rdn      (mousedown)
+        */
+        
+        .jssora12l,
+        .jssora12r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 30px;
+            height: 46px;
+            cursor: pointer;
+            background: url('images/a12.png') no-repeat;
+            overflow: hidden;
+        }
+        
+        .jssora12l {
+            background-position: -16px -37px;
+        }
+        
+        .jssora12r {
+            background-position: -75px -37px;
+        }
+        
+        .jssora12l:hover {
+            background-position: -136px -37px;
+        }
+        
+        .jssora12r:hover {
+            background-position: -195px -37px;
+        }
+        
+        .jssora12l.jssora12ldn {
+            background-position: -256px -37px;
+        }
+        
+        .jssora12r.jssora12rdn {
+            background-position: -315px -37px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        (function() {
+            var shr = document.createElement('script');
+            shr.setAttribute('data-cfasync', 'false');
+            shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+            shr.type = 'text/javascript';
+            shr.async = 'true';
+            shr.onload = shr.onreadystatechange = function() {
+                var rs = this.readyState;
+                if (rs && rs != 'complete' && rs != 'loaded') return;
+                var site_id = '48ca7ea860e8f197ab7e378443670dbb';
+                try {
+                    Shareaholic.init(site_id);
+                } catch (e) {}
+            };
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(shr, s);
+        })();
+        //]]>
+
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <section id="header" class="dark">
+        <div class="row">
+            <div class="4u -8u">
+                <p id="countdown" class="cd"></p>
+            </div>
+        </div>
+        <header>
+            <h1><span class="joker">Why So Many Windows?</span></h1>
+            <p style="padding-left: 30%;">It's time to <a href="#first" class="scrolly" style="text-decoration: none;"><span class="enter">enter</span></a> the Open Source door...</p>
+        </header>
+
+    </section>
+
+    <!-- First -->
+    <section id="first" class="main">
+        <header>
+            <div class="container">
+                <h2>Linuxication 2k16</h2>
+                <p style="text-align: justify;">Stop being trapped in "Windows" and "Gates". It's time to open up. Let us bridge the gap between being slave of Windows to master of Linux</p>
+                <p style="text-align: justify;">Linuxication is a 24 hours workshop (assuming time to be 09:00 AM to 05:00 PM everyday) conducted by <a href="https://www.facebook.com/groups/mitcug/">MCUG</a> with the aim of providing the students an insight of the open source operating system. It is a three day workshop where students are taught each and every thing right from installation of the latest version of Ubuntu to all basic Linux commands, GUI Exploration, TERMINAL, Basic Networking, Programming in Linux. The event starts with an introductory talk from an industry expert. Also concepts of makefile, TAR, Shell Scripting are taught to students so that they can master their OS. It also includes the fun part where source code edition of FIREFOX and VLC is taught. This event has witnessed an overwhelming response over the years with the latest 2015 event getting a maximum registration of 300 students across the city.</p>
+                <a href="#two" class="button scrolly" style="margin-top:81px;" href="">Syllabus and Schedule</a>
+            </div>
+
+        </header>
+        <div id="two" class="content dark style1 featured">
+            <div class="container">
+                <div class="row">
+                    <div class="12u">
+                        <h1 style="font-size:50px;margin-top:-50px;">Syllabus and Schedule</h1>
+                        <h3>12<sup>th</sup> February 2016</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>1. Industrial Talk: right from the expert</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                    <li>a. Why to use Linux?</li>
+                                    <li>b. What are the opportunities in Linux and other open source tools?</li>
+                                    <li>c. How was his experience with Linux?</li>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>2. Installation of Linux based Operating System</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                    <li>a. Ubuntu 14.04 will be used for installation</li>
+                                    <li>b. What is Super-OS?</li>
+                                    <li>c. File system, Ubuntu directory structure</li>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>3. Exploring GUI</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                    <li>a. Different Desktop Environments like Cinnamon, KDE and many more</li>
+                                    <li>b. Basic GUI Exploration</li>
+                                    <li>c. Fun stuff like conky and other desktop tweaks (optional)</li>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>4. Filesystem and directory structure</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>5. Working with Terminal</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>6. Wine</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>7. Automounting and Password Recovery</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>8. Networking Part 1: ssh and Remote Desktop</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="12u">
+                        <h1 style="font-size:50px;margin-top:50px;">Syllabus and Schedule</h1>
+                        <h3>13<sup>th</sup> February 2016</h3>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>8. Networking Part 2: Hotspot, basic network creation, journey of a packet</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>9. GCC and GDB</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>10. Package Managers</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                    <li>a. deb/rpm package manager</li>
+                                    <li>b. Synaptic Packet Manager</li>
+                                    <li>c. Aptitude packet manager</li>
+                                    <li>d. apt-get</li>
+                                    <li>e. Purging</li>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>11. Shell and shell scripting</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>12. Make and Tar</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>13. Source Code exploration in System Exploration</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>14. Grub Rescue, recovery, editing</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="12u">
+                        <h1 style="font-size:50px;margin-top:50px;">Syllabus and Schedule</h1>
+                        <h3>14<sup>th</sup> February 2016</h3>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>1. git</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>2. Editors</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                    <li>a. Vim</li>
+                                    <li>b. Emacs</li>
+                                    <li>c. ed/Sed</li>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>3. Advance Shell Scripting</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>4. Recovery Tools</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="12u">
+                        <section>
+                            <header>
+                                <h2>5. Fun Part : Wifi Hacking Advance Shell Scripting</h2>
+                            </header>
+                            <p>
+                                <ul>
+                                </ul>
+                            </p>
+                        </section>
+                    </div>
+
+                    <div class="12u">
+                        <p>
+                            <a href="#three" class="button scrolly" style="margin-top:20px;" href="">Registration details</a>
+                        </p>
+                    </div>
+                    <div class="12u">
+                        <div class='shareaholic-canvas' data-app='share_buttons' data-app-id='5075844'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="three" class="main">
+        <header>
+            <div class="container">
+                <h2 style="margin-top:-50px;">Registration details</h2>
+            </div>
+        </header>
+        <div class="content dark style2" style="margin-top:-50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="8u">
+                        <h2>The registrations are now open.</h2>
+                        <h2><strong>Limited</strong> seats on first come first serverd basis</h2>
+                        <p>Fees: INR 150.00 per person</p>
+                        <p>Please fill in the form if you wish to register here:
+                            <br>
+                            <a href="http://goo.gl/forms/IWCnrmTA7k" target="_blank">http://goo.gl/forms/IWCnrmTA7k</a>
+                            <br>Or Scan this on your Phone:
+                        </p>
+                        <img src="images/reg_qr_code.jpg" alt="http://goo.gl/forms/IWCnrmTA7k" width="250px">
+
+                    </div>
+                    <div class="4u">
+                        <h2>Conducted by</h2>
+                        <p>MCUG (MIT Computer Users Group)</p>
+                        <a target="_blank" href="https://www.facebook.com/groups/mitcug/"><img src="images/mcug.jpg" alt=""></a>
+                        <br>
+                        <a target="_blank" href="http://mcug.in">mcug.in</a>
+                        <p style="margin-top:20px;">Registration available at <a target="_blank" href="http://texephyr.org/">Texephyr</a> desk in your college.</p>
+                        <div class="12u">
+                            <p>
+                                <a href="#four" class="button scrolly" style="margin-top:20px;" href="">Doubt? Contact us!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="four" class="main">
+        <header>
+            <div class="container">
+                <h2 style="margin-top:-50px;">Gallery</h2>
+            </div>
+        </header>
+        <div class="content dark style2" style="margin-top:-50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="6u">
+                        <h2 style="text-align: center;">Linuxication 2K16 Teaser</h2>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/PCnWx5hl9Ps" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="6u">
+                        <h2 style="text-align: center;">Linuxication 2013 Introduction </h2>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/eXF06rsXvkk" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="12u">
+                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+                            <!-- Loading Screen -->
+                            <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+                                <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+                                <div style="position:absolute;display:block;background:url('images/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+                            </div>
+                            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 400px; overflow: hidden;">
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_01.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_02.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_03.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_04.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_05.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_06.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_07.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_08.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_09.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_10.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_11.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_12.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_13.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_14.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_15.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_16.JPG" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="images/li_17.JPG" />
+                                </div>
+                            </div>
+                            <!-- Bullet Navigator -->
+                            <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+                                <!-- bullet navigator item prototype -->
+                                <div data-u="prototype" style="width:16px;height:16px;"></div>
+                            </div>
+                            <!-- Arrow Navigator -->
+                            <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
+                            <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="five" class="main">
+        <header>
+            <div class="container">
+                <h2 style="margin-top:-50px;">Contact us</h2>
+                <p>Contact us for further enquiry</p>
+            </div>
+        </header>
+        <div class="content dark style2" style="margin-top:-50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="6u">
+                        <h2 style="text-align: center;">Anees RG</h2>
+                        <p style="text-align: center;">+91 727 665 09 72</p>
+                    </div>
+                    <div class="6u">
+                        <h2 style="text-align: center;">Debajyoti Majumdar</h2>
+                        <p style="text-align: center;">+91 976 470 47 62</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="12u" style="margin-left:auto;margin-right:auto;text-align:center;margin-top:45px;">
+                    <li>&copy; <a target="_blank" href="http://mcug.in">MCUG</a>. All rights reserved.</li>
+                    <li>Image &copy; <a target="_blank" href="http://smartproteam.com/joker-tux/">http://smartproteam.com/</a></li>
+                    <li>
+                        <span>Template by: <a href="http://html5up.net" target="_blank">HTML5 UP</a></span>
+                        <span> | Edits: <a href="http://swapnilbhoite.in/" target="_blank">Swapnil</a></span>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    var end = new Date('02/12/2016 09:00 AM');
+
+    var _msecond = 10;
+    var _second = _msecond * 100;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = '';
+            return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+        var mseconds = Math.floor((distance % _second) / _msecond);
+
+        document.getElementById('countdown').innerHTML = days + ' days ';
+        document.getElementById('countdown').innerHTML += hours + ' hrs  ';
+        document.getElementById('countdown').innerHTML += minutes + ' mins  ';
+        if (mseconds < 10) {
+            document.getElementById('countdown').innerHTML += seconds + '.0' + mseconds + ' secs to go!';
+        } else {
+            document.getElementById('countdown').innerHTML += seconds + '.' + mseconds + ' secs to go!';
+        }
+    }
+
+    timer = setInterval(showRemaining, 1);
+
+</script>
+
+</html>
