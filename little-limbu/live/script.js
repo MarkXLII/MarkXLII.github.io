@@ -122,11 +122,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (guesses && guesses.length > 0) {
             guestListUl.innerHTML = ''; // Clear existing list
             guesses.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); // Sort by most recent first
+
             guesses.forEach(guess => {
                 const listItem = document.createElement('li');
-                listItem.className = 'py-2 px-1 flex justify-between items-center';
-                const guessSpan = `<span class="guess-${guess.gender.toLowerCase()}">${guess.gender.toUpperCase()}</span>`;
-                listItem.innerHTML = `<span class="guest-name">${guess.name}</span> guessed: ${guessSpan}`;
+                // Updated className for the li element:
+                listItem.className = 'py-2 px-1 flex items-center'; // Removed justify-between
+
+                // Create a span for the guest's name
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'guest-name';
+                nameSpan.textContent = guess.name;
+
+                // Create a span for the "guessed:" text
+                const guessedTextSpan = document.createElement('span');
+                guessedTextSpan.className = 'guessed-text';
+                guessedTextSpan.textContent = 'guessed:';
+
+                // Create a span for the gender vote
+                const genderSpan = document.createElement('span');
+                // Add 'guess-value' class for general styling of the gender vote
+                genderSpan.className = `guess-value guess-${guess.gender.toLowerCase()}`;
+                genderSpan.textContent = guess.gender.toUpperCase();
+
+                // Append the new spans to the list item
+                listItem.appendChild(nameSpan);
+                listItem.appendChild(guessedTextSpan);
+                listItem.appendChild(genderSpan);
+
                 guestListUl.appendChild(listItem);
             });
         } else {

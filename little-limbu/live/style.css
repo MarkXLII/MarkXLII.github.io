@@ -48,3 +48,64 @@ body {
     color: #db2777;
     /* Tailwind pink-600 */
 }
+
+/* Guest list styling */
+#guestListContainer ul li {
+    padding: 8px 4px;
+    /* Keep or adjust padding as you like */
+    font-size: 0.9rem;
+    /* Keep or adjust font size */
+    display: flex;
+    /* This should already be there from Tailwind's 'flex' class */
+    align-items: center;
+    /* This should already be there from Tailwind's 'items-center' class */
+    border-bottom: 1px solid #eee;
+    /* Optional: adds a light separator line */
+}
+
+#guestListContainer ul li:last-child {
+    border-bottom: none;
+    /* Optional: remove border from the last item */
+}
+
+#guestListContainer ul li .guest-name {
+    font-weight: bold;
+    flex-basis: 120px;
+    /* Adjust this width as needed for the longest typical name */
+    flex-shrink: 0;
+    /* Prevents this column from shrinking */
+    margin-right: 10px;
+    /* Space between name and "guessed:" */
+    white-space: nowrap;
+    /* Prevents long names from wrapping to the next line */
+    overflow: hidden;
+    /* Hides any part of the name that overflows the flex-basis */
+    text-overflow: ellipsis;
+    /* Shows "..." if the name is too long and overflows */
+}
+
+#guestListContainer ul li .guessed-text {
+    color: #555;
+    /* A slightly muted color for "guessed:" */
+    margin-right: 10px;
+    /* Space between "guessed:" and the actual gender */
+    flex-shrink: 0;
+    /* Prevents this from shrinking */
+}
+
+#guestListContainer ul li .guess-value {
+    font-weight: bold;
+    margin-left: auto;
+    /* This is key: pushes the gender to the far right */
+}
+
+/* Keep existing color styles for boy/girl guesses */
+#guestListContainer ul li .guess-boy {
+    color: #2563eb;
+    /* Tailwind blue-600 or your custom blue */
+}
+
+#guestListContainer ul li .guess-girl {
+    color: #db2777;
+    /* Tailwind pink-600 or your custom pink */
+}
