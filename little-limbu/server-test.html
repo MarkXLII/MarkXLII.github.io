@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Status Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .status-box {
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            min-width: 200px;
+        }
+
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-checking {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Server Status Checker</h1>
+
+        <label for="serverUrl">Server URL:</label>
+        <input type="text" id="serverUrl" value="http://localhost:5001"
+            placeholder="Enter server URL (e.g., http://localhost:5001)">
+
+        <button id="checkStatusBtn">Check Server Status</button>
+
+        <div id="statusMessage" class="status-box status-checking">
+            Checking...
+        </div>
+        <pre id="serverResponse"
+            style="text-align: left; background: #eee; padding: 10px; border-radius: 4px; margin-top:15px; max-height: 200px; overflow-y: auto;"></pre>
+        <p class="note">
+            This page attempts to connect to the root ('/') of the specified server URL.
+            Make sure your server is running and CORS is enabled if the server is on a different origin.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const serverUrlInput = document.getElementById('serverUrl');
+            const checkStatusBtn = document.getElementById('checkStatusBtn');
+            const statusMessageDiv = document.getElementById('statusMessage');
+            const serverResponsePre = document.getElementById('serverResponse');
+
+            // Function to update status display
+            function updateStatus(message, type, responseText = '') {
+                statusMessageDiv.textContent = message;
+                statusMessageDiv.className = 'status-box'; // Reset classes
+                if (type === 'success') {
+                    statusMessageDiv.classList.add('status-success');
+                } else if (type === 'error') {
+                    statusMessageDiv.classList.add('status-error');
+                } else {
+                    statusMessageDiv.classList.add('status-checking');
+                }
+                serverResponsePre.textContent = responseText;
+            }
+
+            // Function to check server status
+            async function checkServerStatus() {
+                const serverUrl = serverUrlInput.value.trim();
+                if (!serverUrl) {
+                    updateStatus('Please enter a server URL.', 'error');
+                    return;
+                }
+
+                updateStatus('Checking...', 'checking'); // Initial state before fetch
+
+                try {
+                    // Use the root endpoint as defined in your Flask app
+                    const response = await fetch(serverUrl + '/', { // Added trailing slash for consistency
+                        method: 'GET',
+                        mode: 'cors' // Important for cross-origin requests
+                    });
+
+                    const responseDataText = await response.text(); // Get response as text
+
+                    if (response.ok) {
+                        // The server/app.py home route returns "Gender Reveal API Server is running!"
+                        updateStatus(`Server is UP! Status: ${response.status}`, 'success', responseDataText);
+                    } else {
+                        updateStatus(`Server responded with an error. Status: ${response.status}`, 'error', responseDataText);
+                    }
+                } catch (error) {
+                    console.error('Error checking server status:', error);
+                    let errorMessage = 'Server is DOWN or unreachable.';
+                    if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+                        errorMessage += ' This might be a CORS issue if testing from file:// or a different domain, or the server is not running/accessible at the given URL.';
+                    } else {
+                        errorMessage += ` Details: ${error.message}`;
+                    }
+                    updateStatus(errorMessage, 'error', error.toString());
+                }
+            }
+
+            checkStatusBtn.addEventListener('click', checkServerStatus);
+
+            // Optional: Check status on page load with default URL
+            // checkServerStatus();
+        });
+    </script>
+</body>
+
+</html>

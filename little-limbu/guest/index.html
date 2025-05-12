@@ -1,0 +1,51 @@
+<!-- guest/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Reveal Vote!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS CDN (Optional - for styling) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Confetti.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+
+<body
+    class="bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 flex flex-col items-center justify-center min-h-screen font-sans p-6">
+
+    <div
+        class="bg-white p-8 md:p-12 rounded-xl shadow-2xl text-center max-w-lg w-full transform transition-all duration-500 hover:scale-105">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3 text-gray-700">He or She?</h1>
+        <p class="text-xl text-gray-500 mb-8">Cast Your Vote!</p>
+
+        <div class="mb-6">
+            <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="E.g., Aunt Mary"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all">
+        </div>
+
+        <p class="text-lg font-medium text-gray-700 mb-4">What's your guess?</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <button id="voteBoy"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg text-xl shadow-lg transform hover:scale-105 transition-transform duration-150 ease-in-out">
+                💙 It's a Boy! 💙
+            </button>
+            <button id="voteGirl"
+                class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-6 rounded-lg text-xl shadow-lg transform hover:scale-105 transition-transform duration-150 ease-in-out">
+                💖 It's a Girl! 💖
+            </button>
+        </div>
+
+        <div id="message" class="mt-6 text-lg min-h-[2em]">
+            <!-- Messages will appear here -->
+        </div>
+        <p class="text-xs text-gray-400 mt-8">Remember, this is all for fun!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
