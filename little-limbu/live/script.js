@@ -12,9 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealButton = document.getElementById('revealButton'); // You'll need to add this button if you want a manual reveal
     const revealedGenderEl = document.getElementById('revealedGender');
 
-    // IMPORTANT: Replace this with your actual server URL (e.g., from ngrok or Tailscale)
-    //const SERVER_BASE_URL = 'YOUR_SERVER_URL_HERE'; // e.g., 'https://your-ngrok-abcdef.ngrok.io' or 'http://localhost:5001' for local testing
-    const SERVER_BASE_URL = 'https://c2d9-108-198-211-31.ngrok-free.app';
+    // IMPORTANT: Replace this with your actual server URL
+    const SERVER_BASE_URL = 'https://5065-108-198-211-31.ngrok-free.app';
 
     if (SERVER_BASE_URL === 'YOUR_SERVER_URL_HERE' && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
         alert("Developer Note: Please set the SERVER_BASE_URL in guest/script.js and live/script.js to your backend server's address (e.g., ngrok URL)!");
