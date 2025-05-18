@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Big Reveal!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+
+<body
+    class="bg-gradient-to-br from-yellow-200 via-pink-300 to-purple-400 flex flex-col items-center justify-center min-h-screen font-sans p-6 transition-all duration-1000 ease-in-out">
+
+    <div id="preRevealSection"
+        class="bg-white p-8 md:p-12 rounded-xl shadow-2xl text-center max-w-lg w-full transform transition-all duration-500 hover:scale-105">
+        <img src="https://img.icons8.com/clouds/100/baby.png" alt="Cute Baby Graphic"
+            class="w-32 h-32 mx-auto mb-6 opacity-80" id="babyGraphic">
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-700">The Moment We've All Waited For!</h1>
+        <button id="revealButton"
+            class="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white font-extrabold py-6 px-10 rounded-full text-2xl shadow-xl transform hover:scale-110 transition-transform duration-300 ease-in-out tracking-wider whitespace-nowrap">
+            ✨ REVEAL THE GENDER! ✨
+        </button>
+        <p id="revealError" class="text-red-500 mt-4 font-semibold hidden"></p>
+    </div>
+
+    <div id="revealDisplaySection" class="hidden flex-col items-center justify-center text-center p-8">
+        <h2 id="revealCountdown" class="text-8xl md:text-9xl font-extrabold text-white mb-8"
+            style="text-shadow: 2px 2px 8px rgba(0,0,0,0.3);"></h2>
+        <div id="revealedGenderText"
+            class="text-7xl md:text-8xl lg:text-9xl font-extrabold opacity-0 transform scale-50 transition-all duration-1000 ease-out">
+        </div>
+    </div>
+
+    <div id="statsSection" class="hidden bg-white p-8 md:p-12 rounded-xl shadow-2xl text-center max-w-3xl w-full mt-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-600">How Did You Guess?</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 items-center">
+            <div class="relative h-64 md:h-80 w-full max-w-xs mx-auto">
+                <canvas id="resultsChart"></canvas>
+            </div>
+            <div class="text-left space-y-4">
+                <div class="p-4 bg-blue-100 rounded-lg shadow">
+                    <div class="font-bold text-blue-600 text-xl">TEAM BOY 💙</div>
+                    <div id="boyVotes" class="text-4xl font-extrabold text-blue-700">0</div>
+                    <div id="boyPercentage" class="text-md text-blue-500">(0%)</div>
+                </div>
+                <div class="p-4 bg-pink-100 rounded-lg shadow">
+                    <div class="font-bold text-pink-600 text-xl">TEAM GIRL 💖</div>
+                    <div id="girlVotes" class="text-4xl font-extrabold text-pink-700">0</div>
+                    <div id="girlPercentage" class="text-md text-pink-500">(0%)</div>
+                </div>
+                <p class="text-xl text-gray-600 text-center">Total Votes: <span id="totalVotes"
+                        class="font-bold">0</span></p>
+            </div>
+        </div>
+
+        <div id="loadingMessage" class="mt-4 text-gray-500 hidden">Loading results...</div>
+        <div id="errorMessage" class="mt-4 text-red-500 hidden"></div>
+
+        <div class="mt-8">
+            <h3 class="text-2xl font-bold mb-4 text-gray-700">Guest Guesses:</h3>
+            <div id="guestListContainer"
+                class="max-h-72 overflow-y-auto text-left bg-gray-50 p-4 rounded-lg shadow-inner">
+                <ul id="guestList" class="divide-y divide-gray-200">
+                    <li class="py-2 px-1 text-gray-500">No guesses yet...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

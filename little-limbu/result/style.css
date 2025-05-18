@@ -1,0 +1,117 @@
+/* result/style.css */
+body {
+    font-family: 'Comic Sans MS', 'Chalkduster', 'Snell Roundhand', cursive;
+    /* Fun, celebratory font */
+}
+
+#babyGraphic {
+    /* Example style if you use an image */
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+#revealButton {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4), 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+
+    /* Pink and Blue */
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(236, 72, 153, 0), 0 0 0 15px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0), 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+#revealDisplaySection {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    /* Ensure it's on top */
+    /* Background will be set by JS */
+}
+
+#revealedGenderText.boy {
+    color: #3b82f6;
+    /* Tailwind blue-500 */
+    text-shadow: 0 0 10px #bfdbfe, 0 0 20px #bfdbfe, 0 0 30px #60a5fa, 0 0 40px #60a5fa;
+}
+
+#revealedGenderText.girl {
+    color: #ec4899;
+    /* Tailwind pink-500 */
+    text-shadow: 0 0 10px #fbcfe8, 0 0 20px #fbcfe8, 0 0 30px #f472b6, 0 0 40px #f472b6;
+}
+
+/* Animation for the text pop */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#revealedGenderText.revealed {
+    animation: popIn 1s ease-out forwards;
+}
+
+
+/* Guest list styling (copied from live/style.css and adjusted if needed) */
+#guestListContainer ul li {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+#guestListContainer ul li .guest-name {
+    font-weight: bold;
+    flex-basis: 120px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#guestListContainer ul li .guessed-text {
+    color: #555;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+#guestListContainer ul li .guess-value {
+    font-weight: bold;
+    margin-left: auto;
+}
+
+#guestListContainer ul li .guess-boy {
+    color: #2563eb;
+    /* Tailwind blue-600 */
+}
+
+#guestListContainer ul li .guess-girl {
+    color: #db2777;
+    /* Tailwind pink-600 */
+}
